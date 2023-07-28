@@ -1,15 +1,15 @@
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
-import 'package:e_commerce_flutter/core/app_data.dart';
-import 'package:e_commerce_flutter/src/model/product.dart';
-import 'package:e_commerce_flutter/src/model/numerical.dart';
+import 'package:e_commerce_flutter/core/app_data_ecommerce.dart';
+import 'package:e_commerce_flutter/src/model/product_ecommerce.dart';
+import 'package:e_commerce_flutter/src/model/numerical_ecommerce.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:e_commerce_flutter/src/model/product_category.dart';
-import 'package:e_commerce_flutter/src/model/product_size_type.dart';
+import 'package:e_commerce_flutter/src/model/product_category_ecommerce.dart';
+import 'package:e_commerce_flutter/src/model/product_size_type_ecommerce.dart';
 
-class ProductController extends GetxController {
-  List<Product> allProducts = AppData.products;
-  RxList<Product> filteredProducts = AppData.products.obs;
-  RxList<Product> cartProducts = <Product>[].obs;
+class ProductControllerEcommerce extends GetxController {
+  List<ProductEcommerce> allProducts = AppData.products;
+  RxList<ProductEcommerce> filteredProducts = AppData.products.obs;
+  RxList<ProductEcommerce> cartProducts = <ProductEcommerce>[].obs;
   RxList<ProductCategory> categories = AppData.categories.obs;
   RxInt totalPrice = 0.obs;
 
@@ -34,30 +34,30 @@ class ProductController extends GetxController {
     update();
   }
 
-  void addToCart(Product product) {
+  void addToCart(ProductEcommerce product) {
     product.quantity++;
     cartProducts.add(product);
     cartProducts.assignAll(cartProducts);
     calculateTotalPrice();
   }
 
-  void increaseItemQuantity(Product product) {
+  void increaseItemQuantity(ProductEcommerce product) {
     product.quantity++;
     calculateTotalPrice();
     update();
   }
 
-  void decreaseItemQuantity(Product product) {
+  void decreaseItemQuantity(ProductEcommerce product) {
     product.quantity--;
     calculateTotalPrice();
     update();
   }
 
-  bool isPriceOff(Product product) => product.off != null;
+  bool isPriceOff(ProductEcommerce product) => product.off != null;
 
   bool get isEmptyCart => cartProducts.isEmpty;
 
-  bool isNominal(Product product) => product.sizes?.numerical != null;
+  bool isNominal(ProductEcommerce product) => product.sizes?.numerical != null;
 
   void calculateTotalPrice() {
     totalPrice.value = 0;
@@ -65,7 +65,7 @@ class ProductController extends GetxController {
       if (isPriceOff(element)) {
         totalPrice.value += element.quantity * element.off!;
       } else {
-        totalPrice.value += element.quantity * element.amount;
+        totalPrice.value += element.quantity * element.price;
       }
     }
   }
@@ -86,7 +86,7 @@ class ProductController extends GetxController {
     filteredProducts.assignAll(allProducts);
   }
 
-  List<Numerical> sizeType(Product product) {
+  List<Numerical> sizeType(ProductEcommerce product) {
     ProductSizeType? productSize = product.sizes;
     List<Numerical> numericalList = [];
 
@@ -110,7 +110,7 @@ class ProductController extends GetxController {
     return numericalList;
   }
 
-  void switchBetweenProductSizes(Product product, int index) {
+  void switchBetweenProductSizes(ProductEcommerce product, int index) {
     sizeType(product).forEach((element) {
       element.isSelected = false;
     });
@@ -134,7 +134,7 @@ class ProductController extends GetxController {
     update();
   }
 
-  String getCurrentSize(Product product) {
+  String getCurrentSize(ProductEcommerce product) {
     String currentSize = "";
     if (product.sizes?.categorical != null) {
       for (var element in product.sizes!.categorical!) {

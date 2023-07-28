@@ -1,10 +1,10 @@
-import 'package:e_commerce_flutter/src/model/product_size_type.dart';
+import 'package:e_commerce_flutter/src/model/product_size_type_ecommerce.dart';
 
 enum ProductType { all, watch, mobile, headphone, tablet, tv }
 
-class Product {
+class ProductEcommerce {
   String name;
-  int amount;
+  int price;
   int? off;
   String about;
   bool isAvailable;
@@ -21,9 +21,9 @@ class Product {
     if (newQuantity >= 0) _quantity = newQuantity;
   }
 
-  Product({
+  ProductEcommerce({
     required this.name,
-    required this.amount,
+    required this.price,
     required this.about,
     required this.isAvailable,
     this.sizes,

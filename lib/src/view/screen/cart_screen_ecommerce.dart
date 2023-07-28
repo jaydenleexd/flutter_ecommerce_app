@@ -1,12 +1,12 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:e_commerce_flutter/core/extensions.dart';
-import 'package:e_commerce_flutter/src/model/product.dart';
-import 'package:e_commerce_flutter/src/view/widget/empty_cart.dart';
-import 'package:e_commerce_flutter/src/controller/product_controller.dart';
-import 'package:e_commerce_flutter/src/view/animation/animated_switcher_wrapper.dart';
+import 'package:e_commerce_flutter/core/extensions_ecommerce.dart';
+import 'package:e_commerce_flutter/src/model/product_ecommerce.dart';
+import 'package:e_commerce_flutter/src/view/widget/empty_cart_ecommerce.dart';
+import 'package:e_commerce_flutter/src/controller/product_controller_ecommerce.dart';
+import 'package:e_commerce_flutter/src/view/animation/animated_switcher_wrapper_ecommerce.dart';
 
-final ProductController controller = Get.put(ProductController());
+final ProductControllerEcommerce controller = Get.put(ProductControllerEcommerce());
 
 class CartScreen extends StatelessWidget {
   const CartScreen({Key? key}) : super(key: key);
@@ -24,7 +24,7 @@ class CartScreen extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: controller.cartProducts.mapWithIndex((index, _) {
-          Product product = controller.cartProducts[index];
+          ProductEcommerce product = controller.cartProducts[index];
           return Container(
             width: double.infinity,
             margin: const EdgeInsets.all(15),
@@ -84,7 +84,7 @@ class CartScreen extends StatelessWidget {
                     Text(
                       controller.isPriceOff(product)
                           ? "\$${product.off}"
-                          : "\$${product.amount}",
+                          : "\$${product.price}",
                       style: const TextStyle(
                         fontWeight: FontWeight.w900,
                         fontSize: 23,
@@ -110,8 +110,8 @@ class CartScreen extends StatelessWidget {
                           color: Color(0xFFEC6813),
                         ),
                       ),
-                      GetBuilder<ProductController>(
-                        builder: (ProductController controller) {
+                      GetBuilder<ProductControllerEcommerce>(
+                        builder: (ProductControllerEcommerce controller) {
                           return AnimatedSwitcherWrapper(
                             child: Text(
                               '${controller.cartProducts[index].quantity}',

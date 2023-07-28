@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:e_commerce_flutter/src/model/product.dart';
-import 'package:e_commerce_flutter/src/view/animation/open_container_wrapper.dart';
+import 'package:e_commerce_flutter/src/model/product_ecommerce.dart';
+import 'package:e_commerce_flutter/src/view/animation/open_container_wrapper_ecommerce.dart';
 
 class ProductGridView extends StatelessWidget {
   const ProductGridView({
@@ -10,17 +10,32 @@ class ProductGridView extends StatelessWidget {
     required this.likeButtonPressed,
   }) : super(key: key);
 
-  final List<Product> items;
-  final bool Function(Product product) isPriceOff;
+  final List<ProductEcommerce> items;
+  final bool Function(ProductEcommerce product) isPriceOff;
   final void Function(int index) likeButtonPressed;
 
-  Widget _gridItemHeader(Product product, int index) {
+  Widget _gridItemHeader(ProductEcommerce product, int index) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-       
+          Visibility(
+            visible: isPriceOff(product),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                color: Colors.white,
+              ),
+              width: 80,
+              height: 30,
+              alignment: Alignment.center,
+              child: const Text(
+                "30% OFF",
+                style: TextStyle(fontWeight: FontWeight.w600),
+              ),
+            ),
+          ),
           IconButton(
             icon: Icon(
               Icons.favorite,
@@ -34,63 +49,19 @@ class ProductGridView extends StatelessWidget {
       ),
     );
   }
-Widget _gridItemBody(Product product) {
-  return Container(
-    padding: const EdgeInsets.all(15),
-    decoration: BoxDecoration(
-      color: const Color(0xFFE5E6E8),
-      borderRadius: BorderRadius.circular(5),
-    ),
-    child: Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Image.asset(product.images[0], scale: 1), // Align the image to the left
-        const SizedBox(width:150,),
-        const Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-             Text(
-              "Balance:", // Replace "Your Word" with the word you want to align to the right
-              style: TextStyle(
-                fontSize: 16,
-              ),
-            ),
-             SizedBox(height: 1),
-             Text(
-              "5000", // Add another Text widget with the value "5000"
-              style: TextStyle(
-                fontSize: 16,
-                                fontWeight: FontWeight.bold,
 
-              ),
-              
-            ),
-                         SizedBox(height: 10),
+  Widget _gridItemBody(ProductEcommerce product) {
+    return Container(
+      padding: const EdgeInsets.all(15),
+      decoration: BoxDecoration(
+        color: const Color(0xFFE5E6E8),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Image.asset(product.images[0], scale: 3),
+    );
+  }
 
-              Text(
-              "Baki:", // Replace "Your Word" with the word you want to align to the right
-              style: TextStyle(
-                fontSize: 16,
-              ),
-            ),
-             SizedBox(height: 1),
-             Text(
-              "5000", // Add another Text widget with the value "5000"
-              style: TextStyle(
-                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-
-              ),
-            ),
-          ],
-        ),
-      ],
-    ),
-  );
-}
-
-  Widget _gridItemFooter(Product product, BuildContext context) {
+  Widget _gridItemFooter(ProductEcommerce product, BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -101,7 +72,6 @@ Widget _gridItemBody(Product product) {
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(15),
             bottomRight: Radius.circular(15),
-            
           ),
         ),
         child: Column(
@@ -114,26 +84,25 @@ Widget _gridItemBody(Product product) {
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
                 style: const TextStyle(
-                  fontWeight: FontWeight.w500, 
+                  fontWeight: FontWeight.w500,
                   color: Colors.grey,
                 ),
               ),
             ),
             const SizedBox(height: 5),
             Row(
-
               children: [
                 Text(
                   product.off != null
                       ? "\$${product.off}"
-                      : "\$${product.amount}",
+                      : "\$${product.price}",
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 const SizedBox(width: 3),
                 Visibility(
                   visible: product.off != null ? true : false,
                   child: Text(
-                    "\$${product.amount}",
+                    "\$${product.price}",
                     style: const TextStyle(
                       decoration: TextDecoration.lineThrough,
                       color: Colors.grey,
@@ -158,17 +127,18 @@ Widget _gridItemBody(Product product) {
         shrinkWrap: true,
         physics: const ScrollPhysics(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          childAspectRatio: 10 / 6,
-          crossAxisCount: 1,
+          childAspectRatio: 10 / 16,
+          crossAxisCount: 2,
           mainAxisSpacing: 10,
           crossAxisSpacing: 10,
         ),
         itemBuilder: (_, index) {
-          Product product = items[index];
+          ProductEcommerce product = items[index];
           return OpenContainerWrapper(
             product: product,
             child: GridTile(
               header: _gridItemHeader(product, index),
+              footer: _gridItemFooter(product, context),
               child: _gridItemBody(product),
             ),
           );

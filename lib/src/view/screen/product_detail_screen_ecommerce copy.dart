@@ -1,16 +1,16 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce_flutter/core/app_color.dart';
-import 'package:e_commerce_flutter/src/model/product.dart';
+import 'package:e_commerce_flutter/src/model/product_ecommerce.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:e_commerce_flutter/src/view/widget/page_wrapper.dart';
 import 'package:e_commerce_flutter/src/view/widget/carousel_slider.dart';
-import 'package:e_commerce_flutter/src/controller/product_controller.dart';
+import 'package:e_commerce_flutter/src/controller/product_controller_ecommerce.dart';
 
-final ProductController controller = Get.put(ProductController());
+final ProductControllerEcommerce controller = Get.put(ProductControllerEcommerce());
 
 class ProductDetailScreen extends StatelessWidget {
-  final Product product;
+  final ProductEcommerce product;
 
   const ProductDetailScreen(this.product, {Key? key}) : super(key: key);
 
@@ -42,7 +42,7 @@ class ProductDetailScreen extends StatelessWidget {
 
   Widget _ratingBar(BuildContext context) {
     return Wrap(
-      spacing: 50,
+      spacing: 30,
       crossAxisAlignment: WrapCrossAlignment.center,
       children: [
         RatingBar.builder(
@@ -128,14 +128,14 @@ class ProductDetailScreen extends StatelessWidget {
                           Text(
                             product.off != null
                                 ? "\$${product.off}"
-                                : "\$${product.amount}",
+                                : "\$${product.price}",
                             style: Theme.of(context).textTheme.displayLarge,
                           ),
                           const SizedBox(width: 3),
                           Visibility(
                             visible: product.off != null ? true : false,
                             child: Text(
-                              "\$${product.amount}",
+                              "\$${product.price}",
                               style: const TextStyle(
                                 decoration: TextDecoration.lineThrough,
                                 color: Colors.grey,
@@ -162,7 +162,7 @@ class ProductDetailScreen extends StatelessWidget {
                       const SizedBox(height: 20),
                       SizedBox(
                         height: 40,
-                        child: GetBuilder<ProductController>(
+                        child: GetBuilder<ProductControllerEcommerce>(
                           builder: (_) => productSizesListView(),
                         ),
                       ),
