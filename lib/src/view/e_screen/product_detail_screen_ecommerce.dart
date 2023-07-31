@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:e_commerce_flutter/core/app_color_ecommerce.dart';
-import 'package:e_commerce_flutter/src/model/product_ecommerce.dart';
+import 'package:e_commerce_flutter/e_core/app_color_ecommerce.dart';
+import 'package:e_commerce_flutter/src/e_model/product_ecommerce.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:e_commerce_flutter/src/view/widget/page_wrapper_ecommerce.dart';
-import 'package:e_commerce_flutter/src/view/widget/carousel_slider_ecommerce.dart';
-import 'package:e_commerce_flutter/src/controller/product_controller_ecommerce.dart';
+import 'package:e_commerce_flutter/src/view/e_widget/page_wrapper_ecommerce.dart';
+import 'package:e_commerce_flutter/src/view/e_widget/carousel_slider_ecommerce.dart';
+import 'package:e_commerce_flutter/src/e_controller/product_controller_ecommerce.dart';
 
 final ProductControllerEcommerce controller = Get.put(ProductControllerEcommerce());
 
@@ -76,7 +76,7 @@ class ProductDetailScreen extends StatelessWidget {
             decoration: BoxDecoration(
               color: controller.sizeType(product)[index].isSelected == false
                   ? Colors.white
-                  : AppColor.lightOrange,
+                  : AppColor.lightBlue,
               borderRadius: BorderRadius.circular(10),
               border: Border.all(color: Colors.grey, width: 0.4),
             ),

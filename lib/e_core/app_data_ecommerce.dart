@@ -1,11 +1,11 @@
-import 'package:e_commerce_flutter/src/model/bottom_navy_bar_item_ecommerce.dart';
-import 'package:e_commerce_flutter/src/model/recommended_product_ecommerce.dart';
-import 'package:e_commerce_flutter/src/model/product_size_type_ecommerce.dart';
-import 'package:e_commerce_flutter/src/model/product_category_ecommerce.dart';
+import 'package:e_commerce_flutter/src/e_model/bottom_navy_bar_item_ecommerce.dart';
+import 'package:e_commerce_flutter/src/e_model/recommended_product_ecommerce.dart';
+import 'package:e_commerce_flutter/src/e_model/product_size_type_ecommerce.dart';
+import 'package:e_commerce_flutter/src/e_model/product_category_ecommerce.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:e_commerce_flutter/src/model/categorical_ecommerce.dart';
-import 'package:e_commerce_flutter/src/model/numerical_ecommerce.dart';
-import 'package:e_commerce_flutter/src/model/product_ecommerce.dart';
+import 'package:e_commerce_flutter/src/e_model/categorical_ecommerce.dart';
+import 'package:e_commerce_flutter/src/e_model/numerical_ecommerce.dart';
+import 'package:e_commerce_flutter/src/e_model/product_ecommerce.dart';
 import 'package:flutter/material.dart';
 
 class AppData {
@@ -214,25 +214,25 @@ class AppData {
     BottomNavyBarItemEcommerce(
       "Home",
       const Icon(Icons.home),
-      const Color(0xFFEC6813),
+      const Color(0xff484b6a),
       Colors.grey,
     ),
     BottomNavyBarItemEcommerce(
       "Favorite",
       const Icon(Icons.favorite),
-      const Color(0xFFEC6813),
+      const Color(0xff484b6a),
       Colors.grey,
     ),
     BottomNavyBarItemEcommerce(
       "Cart",
       const Icon(Icons.shopping_cart),
-      const Color(0xFFEC6813),
+      const Color(0xff484b6a),
       Colors.grey,
     ),
     BottomNavyBarItemEcommerce(
       "Profile",
       const Icon(Icons.person),
-      const Color(0xFFEC6813),
+      const Color(0xff484b6a),
       Colors.grey,
     ),
   ];
@@ -240,12 +240,12 @@ class AppData {
   static List<RecommendedProduct> recommendedProducts = [
     RecommendedProduct(
       imagePath: "",
-      cardBackgroundColor: const Color(0xFFEC6813),
+      cardBackgroundColor: const Color(0xff484b6a),
     ),
     RecommendedProduct(
       imagePath: "",
-      cardBackgroundColor: const Color(0xFF3081E1),
-      buttonBackgroundColor: const Color(0xFF9C46FF),
+      cardBackgroundColor: const Color(0xffe4e5f1),
+      buttonBackgroundColor: const Color(0xff484b6a),
       buttonTextColor: Colors.white,
     ),
   ];

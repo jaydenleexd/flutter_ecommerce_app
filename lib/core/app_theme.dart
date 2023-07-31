@@ -7,14 +7,14 @@ class AppTheme {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.all(12),
-        backgroundColor: const Color(0xFFf16b26),
+        backgroundColor: const Color(0xff484b6a),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12), // <-- Radius
         ),
       ),
     ),
     textButtonTheme: TextButtonThemeData(
-      style: TextButton.styleFrom(foregroundColor: Colors.deepOrange),
+      style: TextButton.styleFrom(foregroundColor: Color(0xff484b6a)),
     ),
     iconTheme: const IconThemeData(color: Color(0xFFA6A3A0)),
     textTheme: const TextTheme(

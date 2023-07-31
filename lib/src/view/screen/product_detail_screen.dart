@@ -40,27 +40,7 @@ class ProductDetailScreen extends StatelessWidget {
     );
   }
 
-  Widget _ratingBar(BuildContext context) {
-    return Wrap(
-      spacing: 50,
-      crossAxisAlignment: WrapCrossAlignment.center,
-      children: [
-        RatingBar.builder(
-          initialRating: product.rating,
-          direction: Axis.horizontal,
-          itemBuilder: (_, __) => const Icon(Icons.star, color: Colors.amber),
-          onRatingUpdate: (_) {},
-        ),
-        Text(
-          "(4500 Reviews)",
-          style: Theme.of(context)
-              .textTheme
-              .displaySmall
-              ?.copyWith(fontWeight: FontWeight.w300),
-        )
-      ],
-    );
-  }
+
 
   Widget productSizesListView() {
     return ListView.builder(
@@ -72,11 +52,10 @@ class ProductDetailScreen extends StatelessWidget {
           child: AnimatedContainer(
             margin: const EdgeInsets.only(right: 5, left: 5),
             alignment: Alignment.center,
-            width: controller.isNominal(product) ? 40 : 70,
             decoration: BoxDecoration(
               color: controller.sizeType(product)[index].isSelected == false
                   ? Colors.white
-                  : AppColor.lightOrange,
+                  : AppColor.lightBlue,
               borderRadius: BorderRadius.circular(10),
               border: Border.all(color: Colors.grey, width: 0.4),
             ),
@@ -121,35 +100,14 @@ class ProductDetailScreen extends StatelessWidget {
                         style: Theme.of(context).textTheme.displayMedium,
                       ),
                       const SizedBox(height: 10),
-                      _ratingBar(context),
-                      const SizedBox(height: 10),
                       Row(
                         children: [
                           Text(
-                            product.off != null
-                                ? "\$${product.off}"
-                                : "\$${product.amount}",
+                                 "${product.amount}",
                             style: Theme.of(context).textTheme.displayLarge,
                           ),
                           const SizedBox(width: 3),
-                          Visibility(
-                            visible: product.off != null ? true : false,
-                            child: Text(
-                              "\$${product.amount}",
-                              style: const TextStyle(
-                                decoration: TextDecoration.lineThrough,
-                                color: Colors.grey,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
                           const Spacer(),
-                          Text(
-                            product.isAvailable
-                                ? "Available in stock"
-                                : "Not available",
-                            style: const TextStyle(fontWeight: FontWeight.w500),
-                          )
                         ],
                       ),
                       const SizedBox(height: 30),
@@ -167,15 +125,7 @@ class ProductDetailScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: product.isAvailable
-                              ? () => controller.addToCart(product)
-                              : null,
-                          child: const Text("Add to cart"),
-                        ),
-                      )
+                 
                     ],
                   ),
                 )

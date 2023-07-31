@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:e_commerce_flutter/core/app_color_ecommerce.dart';
+import 'package:e_commerce_flutter/e_core/app_color_ecommerce.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class CarouselSlider extends StatefulWidget {
@@ -41,7 +41,7 @@ class _CarouselSliderState extends State<CarouselSlider> {
         AnimatedSmoothIndicator(
           effect: const WormEffect(
             dotColor: Colors.white,
-            activeDotColor: AppColor.darkOrange,
+            activeDotColor: AppColor.darkBlue,
           ),
           count: widget.items.length,
           activeIndex: newIndex,

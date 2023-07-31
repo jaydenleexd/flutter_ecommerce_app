@@ -21,15 +21,6 @@ class ProductGridView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
        
-          IconButton(
-            icon: Icon(
-              Icons.favorite,
-              color: items[index].isFavorite
-                  ? Colors.redAccent
-                  : const Color(0xFFA6A3A0),
-            ),
-            onPressed: () => likeButtonPressed(index),
-          ),
         ],
       ),
     );
@@ -123,15 +114,10 @@ Widget _gridItemBody(Product product) {
             Row(
 
               children: [
-                Text(
-                  product.off != null
-                      ? "\$${product.off}"
-                      : "\$${product.amount}",
-                  style: Theme.of(context).textTheme.headlineMedium,
-                ),
+              
+                
                 const SizedBox(width: 3),
                 Visibility(
-                  visible: product.off != null ? true : false,
                   child: Text(
                     "\$${product.amount}",
                     style: const TextStyle(

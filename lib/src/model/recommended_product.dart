@@ -9,7 +9,7 @@ class RecommendedProduct {
 
   RecommendedProduct({
     this.cardBackgroundColor,
-    this.buttonTextColor = AppColor.darkOrange,
+    this.buttonTextColor = AppColor.darkBlue,
     this.buttonBackgroundColor = Colors.white,
     this.imagePath,
   });

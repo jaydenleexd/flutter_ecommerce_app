@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:e_commerce_flutter/src/model/product_ecommerce.dart';
-import 'package:e_commerce_flutter/src/view/animation/open_container_wrapper_ecommerce.dart';
+import 'package:e_commerce_flutter/src/e_model/product_ecommerce.dart';
+import 'package:e_commerce_flutter/src/view/e_animation/open_container_wrapper_ecommerce.dart';
 
 class ProductGridView extends StatelessWidget {
   const ProductGridView({

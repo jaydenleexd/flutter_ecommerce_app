@@ -7,12 +7,9 @@ class Product {
   int amount;
   int? off;
   String about;
-  bool isAvailable;
   ProductSizeType? sizes;
   int _quantity;
   List<String> images;
-  bool isFavorite;
-  double rating;
   ProductType type;
 
   int get quantity => _quantity;
@@ -25,13 +22,10 @@ class Product {
     required this.name,
     required this.amount,
     required this.about,
-    required this.isAvailable,
     this.sizes,
     required this.off,
     required int quantity,
     required this.images,
-    required this.isFavorite,
-    required this.rating,
     required this.type,
   }) : _quantity = quantity;
 }

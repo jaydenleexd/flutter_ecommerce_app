@@ -5,7 +5,6 @@ import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:e_commerce_flutter/core/app_data.dart';
 import 'package:e_commerce_flutter/src/view/screen/cart_screen.dart';
 import 'package:e_commerce_flutter/src/view/screen/profile_screen.dart';
-import 'package:e_commerce_flutter/src/view/screen/favorite_screen.dart';
 import 'package:e_commerce_flutter/src/view/screen/product_list_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,8 +12,7 @@ class HomeScreen extends StatefulWidget {
 
   static const List<Widget> screens = [
     ProductListScreen(),
-    FavoriteScreen(),
-    ProfileScreen()
+        ProfileScreen()
   ];
 
   @override

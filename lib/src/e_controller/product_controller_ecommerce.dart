@@ -1,10 +1,10 @@
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
-import 'package:e_commerce_flutter/core/app_data_ecommerce.dart';
-import 'package:e_commerce_flutter/src/model/product_ecommerce.dart';
-import 'package:e_commerce_flutter/src/model/numerical_ecommerce.dart';
+import 'package:e_commerce_flutter/e_core/app_data_ecommerce.dart';
+import 'package:e_commerce_flutter/src/e_model/product_ecommerce.dart';
+import 'package:e_commerce_flutter/src/e_model/numerical_ecommerce.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:e_commerce_flutter/src/model/product_category_ecommerce.dart';
-import 'package:e_commerce_flutter/src/model/product_size_type_ecommerce.dart';
+import 'package:e_commerce_flutter/src/e_model/product_category_ecommerce.dart';
+import 'package:e_commerce_flutter/src/e_model/product_size_type_ecommerce.dart';
 
 class ProductControllerEcommerce extends GetxController {
   List<ProductEcommerce> allProducts = AppData.products;

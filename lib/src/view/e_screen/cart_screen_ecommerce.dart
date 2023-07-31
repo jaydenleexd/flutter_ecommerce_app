@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:e_commerce_flutter/core/extensions_ecommerce.dart';
-import 'package:e_commerce_flutter/src/model/product_ecommerce.dart';
-import 'package:e_commerce_flutter/src/view/widget/empty_cart_ecommerce.dart';
-import 'package:e_commerce_flutter/src/controller/product_controller_ecommerce.dart';
-import 'package:e_commerce_flutter/src/view/animation/animated_switcher_wrapper_ecommerce.dart';
+import 'package:e_commerce_flutter/e_core/extensions_ecommerce.dart';
+import 'package:e_commerce_flutter/src/e_model/product_ecommerce.dart';
+import 'package:e_commerce_flutter/src/view/e_widget/empty_cart_ecommerce.dart';
+import 'package:e_commerce_flutter/src/e_controller/product_controller_ecommerce.dart';
+import 'package:e_commerce_flutter/src/view/e_animation/animated_switcher_wrapper_ecommerce.dart';
 
 final ProductControllerEcommerce controller = Get.put(ProductControllerEcommerce());
 
@@ -107,7 +107,7 @@ class CartScreen extends StatelessWidget {
                             controller.decreaseItemQuantity(product),
                         icon: const Icon(
                           Icons.remove,
-                          color: Color(0xFFEC6813),
+                          color:  Color(0xff484b6a),
                         ),
                       ),
                       GetBuilder<ProductControllerEcommerce>(
@@ -130,7 +130,7 @@ class CartScreen extends StatelessWidget {
                         splashRadius: 10.0,
                         onPressed: () =>
                             controller.increaseItemQuantity(product),
-                        icon: const Icon(Icons.add, color: Color(0xFFEC6813)),
+                        icon: const Icon(Icons.add, color:  Color(0xff484b6a)),
                       ),
                     ],
                   ),
@@ -163,7 +163,7 @@ class CartScreen extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.w900,
-                    color: Color(0xFFEC6813),
+                    color:  Color(0xff484b6a),
                   ),
                 ),
               );

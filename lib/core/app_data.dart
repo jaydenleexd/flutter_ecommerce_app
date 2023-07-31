@@ -11,53 +11,41 @@ class AppData {
   const AppData._();
 
   static String dummyText =
-      'Lorem Ipsum is simply dummy text of the printing and typesetting'
-      ' industry. Lorem Ipsum has been the industry\'s standard dummy text'
-      ' ever since the 1500s, when an unknown printer took a galley of type'
-      ' and scrambled it to make a type specimen book.';
+      'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum';
 
   static List<Product> products = [
     Product(
       name: 'Peach',
-      amount: 460,
+      amount: 5000,
       about: dummyText,
-      isAvailable: true,
-      off: 300,
+      off: 0,
       quantity: 0,
       images: [
         'assets/images/peach.png',
       ],
-      isFavorite: true,
-      rating: 1,
       type: ProductType.mobile,
     ),
     Product(
       name: 'Mango',
-      amount: 380,
+      amount: 5000,
       about: dummyText,
-      isAvailable: false,
-      off: 220,
+      off: 0,
       quantity: 0,
       images: [
         'assets/images/mango.png',
       ],
-      isFavorite: false,
-      rating: 4,
       type: ProductType.tablet,
     ),
     Product(
       name: 'Cherry',
-      amount: 650,
+      amount: 5000,
       about: dummyText,
-      isAvailable: true,
-      off: null,
+      off: 0,
       quantity: 0,
       images: [
          'assets/images/cherry.png',
        
       ],
-      isFavorite: false,
-      rating: 3,
       type: ProductType.tablet,
     ),
   
@@ -107,19 +95,14 @@ class AppData {
     BottomNavyBarItem(
       "Home",
       const Icon(Icons.home),
-      const Color(0xFFEC6813),
+      const Color(0xff484b6a),
       Colors.grey,
     ),
-    BottomNavyBarItem(
-      "Favorite",
-      const Icon(Icons.favorite),
-      const Color(0xFFEC6813),
-      Colors.grey,
-    ),
+
     BottomNavyBarItem(
       "Profile",
       const Icon(Icons.person),
-      const Color(0xFFEC6813),
+      const Color(0xff484b6a),
       Colors.grey,
     ),
   ];

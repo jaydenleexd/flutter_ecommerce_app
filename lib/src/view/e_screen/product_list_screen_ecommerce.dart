@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:e_commerce_flutter/core/app_data_ecommerce.dart';
-import 'package:e_commerce_flutter/core/app_color_ecommerce.dart';
-import 'package:e_commerce_flutter/src/controller/product_controller_ecommerce.dart';
-import 'package:e_commerce_flutter/src/view/widget/product_grid_view_ecommerce.dart';
-import 'package:e_commerce_flutter/src/view/widget/list_item_selector_ecommerce.dart';
+import 'package:e_commerce_flutter/e_core/app_data_ecommerce.dart';
+import 'package:e_commerce_flutter/e_core/app_color_ecommerce.dart';
+import 'package:e_commerce_flutter/src/e_controller/product_controller_ecommerce.dart';
+import 'package:e_commerce_flutter/src/view/e_widget/product_grid_view_ecommerce.dart';
+import 'package:e_commerce_flutter/src/view/e_widget/list_item_selector_ecommerce.dart';
 
 enum AppbarActionType { leading, trailing }
 
@@ -136,13 +136,13 @@ class ProductListScreen extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {},
-            style: TextButton.styleFrom(foregroundColor: AppColor.darkOrange),
+            style: TextButton.styleFrom(foregroundColor: AppColor.darkBlue),
             child: Text(
               "SEE ALL",
               style: Theme.of(context)
                   .textTheme
                   .titleLarge
-                  ?.copyWith(color: Colors.deepOrange.withOpacity(0.7)),
+                  ?.copyWith(color: Color(0xff484b6a).withOpacity(0.7)),
             ),
           )
         ],

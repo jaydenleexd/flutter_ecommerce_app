@@ -13,7 +13,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-
+  flutter_search_bar: ^1.2.5
   get: ^4.6.5
   bottom_navy_bar: ^6.0.0
   smooth_page_indicator: ^1.1.0
@@ -25,7 +25,6 @@ dev_dependencies:
   flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter
-
 
 flutter:
 

@@ -1,4 +1,4 @@
-import 'package:e_commerce_flutter/core/app_color_ecommerce.dart';
+import 'package:e_commerce_flutter/e_core/app_color_ecommerce.dart';
 import 'package:flutter/material.dart' show Color, Colors;
 
 class RecommendedProduct {
@@ -9,8 +9,9 @@ class RecommendedProduct {
 
   RecommendedProduct({
     this.cardBackgroundColor,
-    this.buttonTextColor = AppColor.darkOrange,
+    this.buttonTextColor = AppColor.darkBlue,
     this.buttonBackgroundColor = Colors.white,
     this.imagePath,
+    
   });
 }
